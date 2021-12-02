@@ -5,6 +5,10 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 3.61.0"
     }
+	azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "=2.46.0"
+    }
   }
 
   required_version = "~> 1.0"
@@ -12,6 +16,10 @@ terraform {
 
 provider "aws" {
   region = var.aws_region
+}
+
+provider "azurerm" {
+  features {}
 }
 
 // resource "aws_iam_role" "iam_for_lambda" {
@@ -60,4 +68,18 @@ module "lambda_function_existing_package_local" {
   environment_variables = {
     api_token = var.api_token
   }
+}
+
+module "sql-database" {
+  source              = "Azure/database/azurerm"
+  resource_group_name = "my-rg"
+  location            = "eastus"
+  db_name             = "example-database"
+  sql_admin_username  = "admin"
+  sql_password        = var.azure_sql_password
+
+  tags= {
+    environment = "dev"
+  }             
+
 }

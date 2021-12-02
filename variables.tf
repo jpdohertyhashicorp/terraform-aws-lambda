@@ -14,3 +14,8 @@ variable "api_token" {
   type    = string
   default = ""
 }
+
+variable "azure_sql_password" {
+  type    = string
+  default = ""
+}
