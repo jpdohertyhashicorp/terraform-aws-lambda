@@ -36,7 +36,7 @@ resource "aws_lambda_function" "stocks_resource" {
   function_name = "stocks_function_name"
   role          = aws_iam_role.iam_for_lambda.arn
   handler       = "lambda-function.lambda_handler"
-
+  timeout		= 30
   runtime = "python3.8"
 
   environment {
