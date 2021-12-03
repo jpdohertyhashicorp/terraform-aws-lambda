@@ -24,7 +24,7 @@ provider "azurerm" {
 module "lambda_function_existing_package_local" {
   source = "terraform-aws-modules/lambda/aws"
 
-  function_name = "stocks_function_name"
+  function_name = "stocks_function_from_module"
   handler       = "lambda-function.lambda_handler"
   runtime       = "python3.8"
   timeout		= 30
