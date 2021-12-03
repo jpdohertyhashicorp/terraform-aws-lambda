@@ -1,6 +1,4 @@
 
-# Input variable definitions
-
 variable "aws_region" {
   description = "AWS region for all resources."
 
@@ -11,11 +9,6 @@ variable "aws_region" {
 variable "api_token" {
   description = "FinnHub API Token for accessing stock data"
 
-  type    = string
-  default = ""
-}
-
-variable "azure_sql_password" {
   type    = string
   default = ""
 }
