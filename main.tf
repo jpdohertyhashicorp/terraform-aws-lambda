@@ -2,11 +2,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 3.61.0"
-    }
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = "=2.87.0"
+      version = "~> 4.9.0"
     }
   }
 
@@ -15,10 +11,6 @@ terraform {
 
 provider "aws" {
   region = var.aws_region
-}
-
-provider "azurerm" {
-  features {}
 }
 
 module "lambda_function_existing_package_local" {
@@ -37,14 +29,3 @@ module "lambda_function_existing_package_local" {
   }
 }
 
-resource "azurerm_resource_group" "example" {
-  name     = "my-resource-group"
-  location = "East US"
-}
-
-resource "azurerm_virtual_network" "example" {
-  name                = "example-network"
-  resource_group_name = azurerm_resource_group.example.name
-  location            = azurerm_resource_group.example.location
-  address_space       = ["10.0.0.0/16"]
-}
