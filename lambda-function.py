@@ -23,11 +23,7 @@ def get_marketcap(symbol):
 	try:
 		response = requests.get('https://finnhub.io/api/v1/stock/profile?symbol=' + symbol + '&token=' + token)
 		response_json = response.json()
-		shares = response_json["shareOutstanding"]
-		response = requests.get('https://finnhub.io/api/v1/quote?symbol=' + symbol + '&token=' + token)
-		response_json = response.json()
-		price = response_json["c"]
-		return shares * price
+		return response_json["marketCapitalization"]
 	except KeyError:
 		return -1
 

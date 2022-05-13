@@ -1,0 +1,14 @@
+Zip up python function:
+
+    pip3 install --target ./package requests
+    cd package
+    zip -r ../deployment-package.zip .
+    cd ..
+    zip -g deployment-package.zip lambda-function.py
+    
+
+To invoke with stock symbol for HashiCorp:
+
+    aws lambda invoke --function-name stocks_function --cli-binary-format raw-in-base64-out --payload '{ "symbol": "HCP" }' response.json
+
+Change the stock symbol for whatever company you want

@@ -1,1 +1,5 @@
 .terraform*
+variables-local.tf
+*.tfstate*
+response.json
+package/
