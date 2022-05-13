@@ -51,8 +51,6 @@ def get_roic(ebit, debt, equity, cash):
 		return 0
 	try:
 		return ebit / (debt + equity - cash) * 100
-		# This is a bug.  You are missing out on a lot of opportunities where numbers are good but calculations come out to negative numbers.
-		# Also you are potentially buying some bad stocks if you don't look at individual numbers like just ebit alone
 	except TypeError:
 		return 0
 
